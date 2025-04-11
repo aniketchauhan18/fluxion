@@ -6,7 +6,6 @@ import { columns } from "@/components/app/table/columns";
 import DataTable from "@/components/app/table/data-table";
 import { getSession } from "@/lib/data";
 import { instrumentSerif } from "@/lib/fonts";
-import ExpensesTableWrapper from "@/components/app/ExpenseTableWrapper"; // Use the client wrapper
 import ProfitButton from "@/components/app/ProfitButton"
 
 export default async function Dashboard() {
