@@ -1,6 +1,5 @@
 import Navbar from "@/components/app/navbar";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import Link from "next/link";
 import { instrumentSerif } from "@/lib/fonts";
 

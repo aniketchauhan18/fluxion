@@ -10,7 +10,6 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Plus, Trash2, DollarSign, AlertCircle } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { motion } from 'framer-motion';
 
 export default function ExpensesTable({ onTotalExpenseChange }) {
   const [expenses, setExpenses] = useState([
