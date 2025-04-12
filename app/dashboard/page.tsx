@@ -8,6 +8,7 @@ import { getSession } from "@/lib/data";
 import { instrumentSerif } from "@/lib/fonts";
 import ExpensesTableWrapper from "@/components/app/ExpenseTableWrapper"; // Client component
 import ProfitButton from "@/components/app/ProfitButton";
+import DashboardTable from "./data-table";
 
 // Define types for the API responses (update these interfaces to match your API)
 interface TransactionsResponse {
@@ -177,60 +178,21 @@ export default async function Dashboard() {
       </section>
 
       <section className="mt-10 space-y-10">
-        {/* Transactions DataTable */}
-        <DataTable data={transactions} columns={columns} />
-
-      {/* Four monthly spend cards */}
-<div className="grid gap-5 grid-cols-1 md:grid-cols-2">
-  {/* Card 1 */}
-  <div className="rounded-lg border-2 border-neutral-100 bg-neutral-50 p-5">
-    <ExpensesTableWrapper
-      index={1}
-      faceBalance={faceTsdBalance}
-      estimatedSpend={estimatedSpendWrapper1}
-      faceInterest={faceInterest}
-      storeInterest={storeInterest}
-      txnCost={txnCost}
-    />
-    <ProfitButton effYield={profit1} />
-  </div>
-  {/* Card 2 */}
-  <div className="rounded-lg border-2 border-neutral-100 bg-neutral-50 p-5">
-    <ExpensesTableWrapper
-      index={2}
-      faceBalance={interestData2.faceTsdBalance}
-      estimatedSpend={estimatedSpendWrapper2}
-      faceInterest={interestData2.faceInterest}
-      storeInterest={interestData2.storeInterest}
-      txnCost={interestData2.txnCost}
-    />
-    <ProfitButton effYield={profit2} />
-  </div>
-  {/* Card 3 */}
-  <div className="rounded-lg border-2 border-neutral-100 bg-neutral-50 p-5">
-    <ExpensesTableWrapper
-      index={3}
-      faceBalance={interestData3.faceTsdBalance}
-      estimatedSpend={estimatedSpendWrapper3}
-      faceInterest={interestData3.faceInterest}
-      storeInterest={interestData3.storeInterest}
-      txnCost={interestData3.txnCost}
-    />
-    <ProfitButton effYield={profit3} />
-  </div>
-  {/* Card 4 */}
-  <div className="rounded-lg border-2 border-neutral-100 bg-neutral-50 p-5">
-    <ExpensesTableWrapper
-      index={4}
-      faceBalance={interestData4.faceTsdBalance}
-      estimatedSpend={estimatedSpendWrapper4}
-      faceInterest={interestData4.faceInterest}
-      storeInterest={interestData4.storeInterest}
-      txnCost={interestData4.txnCost}
-    />
-    <ProfitButton effYield={profit4} />
-  </div>
-</div>
+        <DashboardTable />
+        <div className="grid gap-5 grid-cols-1">
+          {/* Card 1 */}
+          <div className="rounded-lg border-2 border-neutral-100 bg-neutral-50 p-5">
+            <ExpensesTableWrapper
+              index={1}
+              faceBalance={faceTsdBalance}
+              estimatedSpend={estimatedSpendWrapper1}
+              faceInterest={faceInterest}
+              storeInterest={storeInterest}
+              txnCost={txnCost}
+            />
+            <ProfitButton effYield={profit1} />
+          </div>
+        </div>
 
       </section>
     </main>

@@ -19,4 +19,8 @@ export const columns = [
     accessorKey: "amount",
     header: "Amount",
   },
+  {
+    accessorKey: "Status",
+    header: "Status",
+  },
 ];

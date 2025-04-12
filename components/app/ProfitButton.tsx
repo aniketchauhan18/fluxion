@@ -10,6 +10,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
+import { Button } from '../ui/button';
 
 export default function ProfitButton({ effYield }: { effYield: number }) {
   const [profits, setProfits] = useState<number[]>([]);
@@ -70,13 +71,13 @@ export default function ProfitButton({ effYield }: { effYield: number }) {
   
   return (
     <div className="mt-10">
-      <button
+      <Button
         onClick={getProfits}
-        className="px-4 py-2 bg-neutral-600 text-white rounded-lg hover:bg-neutral-700"
+        className="px-4 py-2 bg-neutral-700 font-normal h-7 text-xs text-white rounded-lg hover:bg-neutral-700"
         disabled={loading}
       >
         {loading ? 'Fetching...' : 'Get Profits'}
-      </button>
+      </Button>
 
       {error && <p className="text-red-600 mt-2">{error}</p>}
 

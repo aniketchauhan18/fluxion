@@ -168,9 +168,6 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
           </Table>
         </ScrollArea>
       </CardContent>
-      
-      <Separator className='bg'/>
-      
       <CardFooter className="flex justify-between p-4 bg-neutral-50">
         <div className="flex items-center text-sm text-neutral-600">
           {emptyRows.length > 0 && (

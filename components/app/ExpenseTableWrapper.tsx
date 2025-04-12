@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import ExpensesTable from './ExpensesTable';
 import { instrumentSerif } from '@/lib/fonts';
+import { Button } from '../ui/button';
 
 interface ExpensesTableWrapperProps {
   index: number;
@@ -133,12 +134,12 @@ export default function ExpensesTableWrapper({
         </p>
       )}
 
-      <button
+      <Button
         onClick={callModelAPI}
-        className="mt-4 px-4 py-2 bg-neutral-500 text-white rounded hover:bg-neutral-600"
+        className="mt-4 px-4 py-2 h-7 flex items-center font-normal text-xs rounded-lg bg-neutral-700 text-white hover:bg-neutral-700"
       >
         Call Model
-      </button>
+      </Button>
 
       {modelResponse && (
         <div className="mt-4 p-4 rounded-xl border border-neutral-200 bg-neutral-50">
