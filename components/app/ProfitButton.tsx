@@ -72,7 +72,7 @@ export default function ProfitButton({ effYield }: { effYield: number }) {
     <div className="mt-10">
       <button
         onClick={getProfits}
-        className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        className="px-4 py-2 bg-neutral-600 text-white rounded-lg hover:bg-neutral-700"
         disabled={loading}
       >
         {loading ? 'Fetching...' : 'Get Profits'}

@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Plus, Trash2, DollarSign, AlertCircle } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { instrumentSerif } from '@/lib/fonts';
 
 export default function ExpensesTable({ onTotalExpenseChange }) {
   const [expenses, setExpenses] = useState([
@@ -26,7 +27,7 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
 
   // Category colors for visual differentiation
   const categoryColors = {
-    'Rent/Mortgage': 'bg-blue-100 text-blue-800',
+    'Rent/Mortgage': 'bg-neutral-100 text-neutral-800',
     'Utilities': 'bg-amber-100 text-amber-800',
     'Groceries': 'bg-green-100 text-green-800',
     'Transportation': 'bg-purple-100 text-purple-800',
@@ -34,7 +35,7 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
     'Entertainment': 'bg-pink-100 text-pink-800',
     'Health': 'bg-red-100 text-red-800',
     'Subscriptions': 'bg-indigo-100 text-indigo-800',
-    'Other': 'bg-gray-100 text-gray-800',
+    'Other': 'bg-neutral-100 text-neutral-800',
   };
 
   const addRow = () => {
@@ -75,25 +76,25 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
   }, [expenses, onTotalExpenseChange]);
 
   return (
-    <Card className="w-full shadow-xl border-0 overflow-hidden">
-      <CardHeader className="bg-gradient-to-r text-gray-800 ">
+    <Card className="w-full border-0 overflow-hidden shadow-none">
+      <CardHeader className="bg-gradient-to-r text-neutral-800 ">
         <CardTitle className="text-2xl font-bold flex items-center justify-between gap-2">
-          <span>Monthly Expenses</span>
+          <span className={`${instrumentSerif.className} lg:text-2xl`}>Monthly Expenses</span>
           <Badge variant="outline" className="text-lg font-mono bg-white/20 backdrop-blur-sm py-1 px-3">
             ${totalExpense.toFixed(2)}
           </Badge>
         </CardTitle>
       </CardHeader>
       
-      <CardContent className="p-0 bg-slate-50">
+      <CardContent className="p-0 bg-neutral-50">
         <ScrollArea className="h-48">
           <Table>
             <TableHeader>
-              <TableRow className="bg-slate-100 hover:bg-slate-100">
-                <TableHead className="font-semibold text-slate-700">Description</TableHead>
-                <TableHead className="font-semibold text-slate-700">Category</TableHead>
-                <TableHead className="font-semibold text-slate-700">Amount</TableHead>
-                <TableHead className="font-semibold text-slate-700">Notes</TableHead>
+              <TableRow className="bg-neutral-100 hover:bg-neutral-100">
+                <TableHead className="font-semibold text-neutral-700">Description</TableHead>
+                <TableHead className="font-semibold text-neutral-700">Category</TableHead>
+                <TableHead className="font-semibold text-neutral-700">Amount</TableHead>
+                <TableHead className="font-semibold text-neutral-700">Notes</TableHead>
                 <TableHead className="w-10"></TableHead>
               </TableRow>
             </TableHeader>
@@ -116,7 +117,7 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
                       value={expense.category}
                       onValueChange={(value) => updateExpense(expense.id, 'category', value)}
                     >
-                      <SelectTrigger className={`${!expense.category && 'border-red-200'} transition-colors`}>
+                      <SelectTrigger className={`${!expense.category && 'border-red-200'} transition-colors w-full`}>
                         <SelectValue placeholder="Select category" />
                       </SelectTrigger>
                       <SelectContent>
@@ -133,7 +134,7 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
                   </TableCell>
                   <TableCell className="py-2">
                     <div className="relative">
-                      <DollarSign className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-500" />
+                      <DollarSign className="absolute left-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-neutral-500" />
                       <Input
                         type="number"
                         placeholder="0.00"
@@ -155,7 +156,7 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
                       variant="ghost" 
                       size="icon"
                       onClick={() => removeRow(expense.id)}
-                      className="text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-full"
+                      className="text-neutral-400 hover:text-red-500 hover:bg-red-50 rounded-full"
                       disabled={expenses.length <= 1}
                     >
                       <Trash2 className="w-4 h-4" />
@@ -168,10 +169,10 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
         </ScrollArea>
       </CardContent>
       
-      <Separator />
+      <Separator className='bg'/>
       
-      <CardFooter className="flex justify-between p-4 bg-slate-50">
-        <div className="flex items-center text-sm text-slate-600">
+      <CardFooter className="flex justify-between p-4 bg-neutral-50">
+        <div className="flex items-center text-sm text-neutral-600">
           {emptyRows.length > 0 && (
             <div className="flex items-center gap-1">
               <AlertCircle className="h-4 w-4 text-amber-500" />
@@ -181,7 +182,7 @@ export default function ExpensesTable({ onTotalExpenseChange }) {
         </div>
         <Button 
           onClick={addRow} 
-          className="bg-blue-600 hover:bg-blue-700 text-white font-medium flex items-center gap-1 px-4"
+          className="bg-neutral-600 hover:bg-neutral-700 text-white font-medium flex items-center gap-1 px-4"
         >
           <Plus className="w-4 h-4" /> Add Expense
         </Button>

@@ -28,5 +28,5 @@ export default async function authMiddleware(request: NextRequest) {
 
 export const config = {
   // add matcher functions here
-  matcher: ["/"],
+  matcher: ["/dashboard"],
 };

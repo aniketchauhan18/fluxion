@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import ExpensesTable from './ExpensesTable';
+import { instrumentSerif } from '@/lib/fonts';
 
 interface ExpensesTableWrapperProps {
   index: number;
@@ -121,33 +122,33 @@ export default function ExpensesTableWrapper({
       </p>
 
       {movableBalance !== null && (
-        <p className="mt-2 text-sm text-gray-700">
+        <p className="mt-2 text-sm text-neutral-700">
           Movable Balance: ${movableBalance.toFixed(2)}
         </p>
       )}
 
       {apyDifference !== null && (
-        <p className="text-sm text-gray-700">
+        <p className="text-sm text-neutral-700">
           APY Difference: {apyDifference.toFixed(2)}%
         </p>
       )}
 
       <button
         onClick={callModelAPI}
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        className="mt-4 px-4 py-2 bg-neutral-500 text-white rounded hover:bg-neutral-600"
       >
-        Call Model API
+        Call Model
       </button>
 
       {modelResponse && (
-        <div className="mt-4 p-4 rounded-xl border border-gray-200 shadow-sm bg-gray-50">
-          <h3 className="text-base font-semibold text-gray-800 mb-2">
+        <div className="mt-4 p-4 rounded-xl border border-neutral-200 bg-neutral-50">
+          <h3 className={`text-base font-semibold text-neutral-800 mb-2 ${instrumentSerif.className}`}>
             Model Prediction
           </h3>
           <div className="flex flex-col space-y-1 text-sm">
             {modelResponse.profit !== undefined && (
               <div className="flex justify-between">
-                <span className="text-gray-600">Profit:</span>
+                <span className="text-neutral-600">Profit:</span>
                 <span className="text-green-600 font-medium">
                   ${modelResponse.profit.toFixed(2)}
                 </span>
@@ -155,14 +156,14 @@ export default function ExpensesTableWrapper({
             )}
             {modelResponse.loss !== undefined && (
               <div className="flex justify-between">
-                <span className="text-gray-600">Loss:</span>
+                <span className="text-neutral-600">Loss:</span>
                 <span className="text-red-600 font-medium">
                   ${Math.abs(modelResponse.loss).toFixed(2)}
                 </span>
               </div>
             )}
             <div className="flex justify-between">
-              <span className="text-gray-600">Execute Transaction:</span>
+              <span className="text-neutral-600">Execute Transaction:</span>
               <span
                 className={`font-medium ${
                   modelResponse.execute ? 'text-green-700' : 'text-red-600'
