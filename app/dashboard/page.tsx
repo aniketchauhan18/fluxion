@@ -165,12 +165,12 @@ export default async function Dashboard() {
 
         <div className="grid md:grid-cols-2 gap-5">
           <FaceWalletCard
-            interest={Number(faceInterest)}
+            interest={parseInt(faceInterest)}
             balance={faceTsdBalance}
             txnCost={txnCost}
           />
           <StoreWalletCard
-            interest={Number(storeInterest)}
+            interest={parseInt(storeInterest)}
             balance={storeTsdBalance}
             txnCost={txnCost}
           />
@@ -178,7 +178,7 @@ export default async function Dashboard() {
       </section>
 
       <section className="mt-10 space-y-10">
-        <DashboardTable />
+        <DataTable data={transactions} columns={columns} />
         <div className="grid gap-5 grid-cols-1">
           {/* Card 1 */}
           <div className="rounded-lg border-2 border-neutral-100 bg-neutral-50 p-5">
